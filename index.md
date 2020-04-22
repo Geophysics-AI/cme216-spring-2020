@@ -83,7 +83,7 @@ Module 1 (week 1 and 2)
 - SVM; [scikit-learn](https://scikit-learn.org/stable/); kernel trick; radial basis functions
 - Overfitting; underfitting; regularization
 
-- Homework 1 due; April 16
+- Homework 1 due; April 16 (SVM homework)
 
 **Deep learning**
 
@@ -101,7 +101,7 @@ Module 3 (week 4)
 - Regularization strategies
 <!-- - Batch normalization -->
 
-- Homework 2 due; April 30
+- Homework 2 due; April 30 (covid-19 modeling)
 
 Module 4 (week 5-6)
 
@@ -117,8 +117,9 @@ Module 5 (week 6-7)
 - DNN and numerical PDE solvers
 - Automatic differentiation; forward and reverse mode AD; chain rule; computational graph
 - Examples of numerical PDE solutions with ADCME
+- Physics constrained learning
 
-- Homework 3 due on May 14 (week 6)
+- Homework 3 due on May 14 (week 6; bathymetry)
 
 **Generative deep networks**
 
@@ -130,7 +131,7 @@ Module 6 (week 8-9)
 - WGANs
 - PhysGAN
 
-- Homework 4 due on May 28 (week 8)
+- Homework 4 due on May 28 (week 8; physics informed learning)
 
 **Reinforcement learning**
 
