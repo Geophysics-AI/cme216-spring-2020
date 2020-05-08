@@ -13,7 +13,7 @@ If you only have a windows machine, you can use the Stanford [farmshare](https:/
 
 ### For MacOS
 
-Due to an incompatability issue of the latest Julia (1.4) and TensorFlow 1.x, please download and install Julia 1.3 from [here](https://julialang.org/downloads/oldreleases/#v131_dec_30_2019). 
+Due to an incompatability issue of the latest Julia (1.4) and TensorFlow 1.x, please download and install Julia 1.3 from the [official website](https://julialang.org/downloads/oldreleases/#v131_dec_30_2019). 
 
 After installation, Julia-1.3 will appear in your `Application` folder. Open the Julia application and you will see the Julia prompt
 
