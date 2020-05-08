@@ -79,7 +79,7 @@ $$\kappa(x) = 2+1.5x$$
 
 $$A_{11} = 201, A_{12} = -200, A_{21} = -101.5, A_{33} = 207, A_{10, 10} = 228$$
 
-**(d)** The computational graph of the dynamical system can be efficiently constructed using `while_loop`. Implement the forward computation using `while_loop`. For debugging, you can plot the temperature on the left side. You should have something similar to the following plot 
+**(d)** The computational graph of the dynamical system can be efficiently constructed using `while_loop`. Implement the forward computation using `while_loop`. For debugging, you can plot the temperature on the left side, i.e., $u(0,t)$. You should have something similar to the following plot 
 
 
 
@@ -96,10 +96,10 @@ Since we do not know the form of $\kappa(x)$, it's reasonable we need more data 
 In this problem, let us parametrize $\kappa(x)$ with a fully conneted neural network with 3 hidden layers, 20 neurons per layer, and $\tanh$ activation functions. In ADCME, such a neural network can be constructed using 
 
 ```julia
-y = ae(x, [20,20,20,1])
+y = fc(x, [20,20,20,1])
 ```
 
-Here $\texttt{x}$ is a $n\times 1$ input, $\texttt{y}$ is a $n\times 1$ output, $[20,20,20,1]$ is the number of neurons per layer (last output layer only has 1 neuron), and $\texttt{ae}$ stands for auto-encoder. 
+Here $\texttt{x}$ is a $n\times 1$ input, $\texttt{y}$ is a $n\times 1$ output, $[20,20,20,1]$ is the number of neurons per layer (last output layer only has 1 neuron), and $\texttt{fc}$ stands for "fully-connected". 
 
 **(a)** Assume that the neural network is written as $\kappa_\theta(x)$, where $\theta$ is the weights and biases. Write down the mathematical optimization problem for the inverse modeling. 
 
