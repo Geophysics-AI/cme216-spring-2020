@@ -9,7 +9,7 @@ If you only have a windows machine, you can use the Stanford [farmshare](https:/
 
 # Install ADCME
 
-## 1. Install Julia 1.3 
+## 1. Install Julia
 
 ### For MacOS
 
