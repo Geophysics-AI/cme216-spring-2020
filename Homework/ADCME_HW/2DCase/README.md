@@ -21,24 +21,7 @@ $$
 
 ## Install 
 
-To install the C++ kernel, in the current directory,
-
-```bash
-julia> using ADCME
-julia> mkdir("build")
-julia> cd("build")
-julia> ADCME.cmake()
-julia> ADCME.make()
-```
-
-If you do not have `cmake` or `make` in your environment but have installed ADCME, these utilities should be available already, simply replace `cmake` and `make` by (`$HOME` is your home directory, substitute it with the appropriate location if they are not defined)
-
-```
-$HOME/.julia/conda/3/bin/cmake 
-$HOME/.julia/conda/3/bin/make 
-```
-
-You will see `libHeatEquation.XXX` (`XXX` might be `dylib`, `so`, or `dll` based on the system you are using). This is the bidary product you will use. 
+See [Setup Guide](../Setup.md) for installation instruction.
 
 ## Numerical Methods
 

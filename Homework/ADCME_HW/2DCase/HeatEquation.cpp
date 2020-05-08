@@ -120,9 +120,6 @@ public:
     auto n_tensor = n.flat<int64>().data();
     auto out_tensor = out->flat<double>().data();   
 
-    // implement your forward function here 
-
-    // TODO:
     forward(out_tensor, u_tensor, f_tensor, kappa_tensor, *dt_tensor, *dx_tensor, *m_tensor, *n_tensor);
  
   }
@@ -174,9 +171,7 @@ public:
     DCHECK_EQ(m_shape.dims(), 0);
     DCHECK_EQ(n_shape.dims(), 0);
 
-    // extra check
-    // int m = Example.dim_size(0);
-        
+
     // create output shape
     
     TensorShape grad_u_shape(u_shape);
@@ -225,7 +220,6 @@ public:
 
     // implement your backward function here 
 
-    // TODO:
     backward(
         grad_u_tensor, grad_f_tensor, grad_kappa_tensor, 
         grad_out_tensor,
