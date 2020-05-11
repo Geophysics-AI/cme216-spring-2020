@@ -283,7 +283,7 @@ $$\kappa(x) = a + bx$$
 \end{frame}
 
 \begin{frame}
-	\frametitle{Function Inverse Problem: Independent Case}
+	\frametitle{Function Inverse Problem: Independent of State Variables}
 	\begin{itemize}
 		\item Another wide category of inverse problem is the so called \textcolor{red}{function inverse problem}, where the unknown is a function. 
 		\item First let us consider the case where $\kappa$ is independent of the state variable $u$. 
@@ -299,7 +299,7 @@ $$\kappa(x) = a + bx$$
 \end{frame}
 
 \begin{frame}
-	\frametitle{Function Inverse Problem: Dependent Case.}
+	\frametitle{Function Inverse Problem: Dependent on State Variables}
 	\begin{itemize}
 		\item Another interesting scenario is that $\kappa$ is dependent on $u$. 
 		$$\begin{aligned}
@@ -548,7 +548,7 @@ $$\theta = [\mathbf{W}_1, \mathbf{b}_1, \mathbf{W}_2, \mathbf{b}_2, \ldots, \mat
 	\begin{itemize}
 		\item The computational graphs of a neural network and a  numerical solver are coupled. 
 		\begin{figure}[hbt]
-  \includegraphics[width=1.0\textwidth]{figures/solver}
+  \includegraphics[width=0.8\textwidth]{figures/solver}
 \end{figure}
 		\item  Training Neural Networks: estimating the weights and biases of the neural network $W, b$ by running gradient descent on the computational graph. 
 	\end{itemize}
@@ -713,7 +713,7 @@ However, wse cannot express $u_\theta$ analytically in terms of $\theta$.
 
 
 \begin{frame}
-	\frametitle{Physics Constrained Learning}
+	\frametitle{Physics Constrained Learning (Optional)}
 \begin{itemize}
 	\item Let's consider a simple example
 	\begin{align*}
@@ -737,16 +737,16 @@ However, wse cannot express $u_\theta$ analytically in terms of $\theta$.
 		\item Consider a function $f:x\mapsto y$, implicitly defined by 
 		$$x^3-(y^3+y) = 0$$
 		\item Treat $y$ as a function of $x$ and take the derivative on both sides
-		$$3x^2 - 3y(x)^2y'(x)-1=0$$
+		$$3x^2 - 3y(x)^2y'(x)-y'(x)=0$$
 \item Rearrange the expression and we obtain 
-$$y'(x) = \frac{3x^2-1}{3y(x)^2}$$
+$$y'(x) = \frac{3x^2}{3y(x)^2+1}$$
 	\end{itemize}
 	
 \end{frame}
 
 
 \begin{frame}
-	\frametitle{Physics Constrained Learning}
+	\frametitle{Physics Constrained Learning (Optional)}
 	\begin{enumerate}
 		\item 
 		$$\frac{\partial \tilde L_h(\theta)}{\partial \theta} = 2(u_\theta-u_0)^T \frac{\partial u_\theta}{\partial \theta}$$
@@ -760,7 +760,7 @@ $$\frac{\partial \tilde L_h(\theta)}{\partial \theta} = 2(u_\theta-u_0)^T(A+\the
 \end{frame}
 
 \begin{frame}
-	\frametitle{Physics Constrained Learning}
+	\frametitle{Physics Constrained Learning (Optional)}
 	
 	\begin{enumerate}
 		\item Remember: in reverse-mode AD, gradients are always back-propagated from downstream (objective function) to upstream (unknowns). 
@@ -776,7 +776,7 @@ $$\frac{\partial \tilde L_h(\theta)}{\partial \theta} = 2(u_\theta-u_0)^T(A+\the
 
 
 \begin{frame}
-	\frametitle{Physics Constrained Learning}
+	\frametitle{Physics Constrained Learning (Optional)}
 	
 	\begin{itemize}
 		\item A trick for evaluating $g^T Bu_\theta$: consider $g$ as independent of $\theta$ in the computational graph, then 
