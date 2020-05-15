@@ -3,3 +3,9 @@ _site/
 .ipynb_checkpoints/
 .jekyll-metadata
 *.DS_Store
+*.aux
+*.nav
+*.out
+*.toc
+*.log
+*.snm
