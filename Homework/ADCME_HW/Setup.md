@@ -37,7 +37,12 @@ echo 'export PATH=/Applications/Julia-1.3.app/Contents/Resources/julia/bin:$PATH
 
 Download Julia 1.3 or 1.4 from the [official website](https://julialang.org/downloads/). Uncompress the tarball to any directory you want. There is a directory `bin` inside the Julia directory you just uncompressed. Add the absolute path of the `bin` directory to your `PATH` environment variable. 
 
+
+---
+
 Example:
+
+**Linux**
 
 ```bash
 echo 'export PATH=:$PATH' >>~/.bashrc
@@ -48,6 +53,20 @@ Then refresh your environment by running
 ```bash
 source ~/.bashrc
 ```
+
+**Mac**
+
+```bash
+echo 'export PATH=:$PATH' >>~/.bash_profile
+```
+
+Then refresh your environment by running
+
+```bash
+source ~/.bash_profile
+```
+
+---
 
 Type `julia` in the terminal, and you should be able to open a Julia prompt. 
 
