@@ -61,7 +61,11 @@ For the insulated boundary, we introduce the ghost node $$u_{0}^k$$ at location 
 
 $$-\kappa_1 \frac{u_2^{k}-u_0^k}{2\Delta x} = 0\tag{5}$$
 
-**(b)** Let $$U^k = \begin{bmatrix}u_1^k\\u_2^k\\\vdots \\u_n^k\end{bmatrix}$$ (note the index starts from 1 and ends with $$n$$), using the finite difference scheme, together with proper elimination of boundary values $$u_0^k$$, $$u_{n+1}^k$$, we have the following formula
+**(b)** Let 
+
+$$U^k = \begin{bmatrix}u_1^k\\u_2^k\\\vdots \\u_n^k\end{bmatrix}$$ 
+
+(note the index starts from 1 and ends with $$n$$), using the finite difference scheme, together with proper elimination of boundary values $$u_0^k$$, $$u_{n+1}^k$$, we have the following formula
 
 $$AU^{k+1} = U^k + F^{k+1}$$
 

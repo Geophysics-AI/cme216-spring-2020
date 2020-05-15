@@ -30,6 +30,7 @@ Module 2
 - [Python setup guide](Python Setup Guide)
 - [Homework 1](Homework/HW1 Questions) and [starter code](Homework/hw1_starter_code.zip)
 - [Homework 2](Homework/HW2 Questions) and [starter code](Homework/hw2_starter_code.zip)
+- [Homework 4](Homework/ADCME_HW/HW Questions)
 
 ## Lecture slides and code
 
