@@ -3,9 +3,9 @@ layout: page
 title: Installation Guide For ADCME 
 ---
 
-ADCME is tested and supported on Linux or MacOS system. The support for custom operators on Windows is not available yet. We have separate instructions for MacOS and Linux systems. 
+ADCME is tested and supported on Linux and MacOS systems. The support for custom operators on Windows is not available yet. We have separate instructions for MacOS and Linux systems. 
 
-If you only have a windows machine, you can use the Stanford [farmshare](https://srcc.stanford.edu/farmshare2) computing environment. SSH to `rice.stanford.edu` using your SUNetID.
+If you only have a Windows machine, you can use the Stanford [Farmshare](https://srcc.stanford.edu/farmshare2) computing environment. ssh to `rice.stanford.edu` using your SUNetID.
 
 # Install ADCME
 
@@ -13,7 +13,7 @@ If you only have a windows machine, you can use the Stanford [farmshare](https:/
 
 ### For MacOS
 
-Due to an incompatability issue of the latest Julia (1.4) and TensorFlow 1.x, please download and install Julia 1.3 from the [official website](https://julialang.org/downloads/oldreleases/#v131_dec_30_2019). 
+Due to an incompatibility issue with Julia 1.4 and TensorFlow 1.x, please download and install Julia 1.3 from the [official website](https://julialang.org/downloads/oldreleases/#v131_dec_30_2019). 
 
 After installation, Julia-1.3 will appear in your `Application` folder. Open the Julia application and you will see the Julia prompt
 
@@ -27,16 +27,17 @@ Example output:
 "/Applications/Julia-1.3.app/Contents/Resources/julia/bin"
 ```
 
-Add this path to your `PATH` environment variable
+Add this path to your `PATH` environment variable (make sure to scroll to the right to copy the entire line below)
 
 ```bash
-echo 'export PATH=/Applications/Julia-1.3.app/Contents/Resources/julia/bin:$PATH' >>~/.bash_profile
+echo 'export PATH=/Applications/Julia-1.3.app/Contents/Resources/julia/bin:$PATH' >> ~/.bash_profile
 ```
+
+On the most recent version of MacOS, you need to replace `~/.bash_profile` by `~/.zshrc`. If you are unsure, type `ls ~/.zshrc`. If the file exists, this is the one you should use.
 
 ### For Linux 
 
 Download Julia 1.3 or 1.4 from the [official website](https://julialang.org/downloads/). Uncompress the tarball to any directory you want. There is a directory `bin` inside the Julia directory you just uncompressed. Add the absolute path of the `bin` directory to your `PATH` environment variable. 
-
 
 ---
 
@@ -45,31 +46,22 @@ Example:
 **Linux**
 
 ```bash
-echo 'export PATH=:$PATH' >>~/.bashrc
+echo 'export PATH=:$PATH' >> ~/.bashrc
 ```
 
-Then refresh your environment by running
-
-```bash
-source ~/.bashrc
-```
+Then restart your shell to apply the new settings.
 
 **Mac**
 
 ```bash
-echo 'export PATH=:$PATH' >>~/.bash_profile
+echo 'export PATH=:$PATH' >> ~/.bash_profile
 ```
 
-Then refresh your environment by running
-
-```bash
-source ~/.bash_profile
-```
+Then restart your shell to apply the new settings.
 
 ---
 
 Type `julia` in the terminal, and you should be able to open a Julia prompt. 
-
 
 Open a new terminal and type `julia`. You should see a `julia` prompt.
 
