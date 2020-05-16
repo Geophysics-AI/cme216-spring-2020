@@ -8,6 +8,7 @@ Late day policy: 1 late day with a 20% grade penalty.
 
 For this homework, you need to install Julia and ADCME. See this [installation guide](./Setup.md) for detail setup. 
 
+[ADCME API reference](https://kailaix.github.io/ADCME.jl/dev/api/)
 
 # Inverse Modeling with ADCME
 
@@ -87,13 +88,13 @@ Hint: Can you eliminate $$u_0^k$$ and $$u_{n+1}^k$$ in Eq. (4) using Eq. (5) and
 The starter code `starter1.jl` precomputes the force vector $$F^k$$ and packs it into a matrix $$F\in \mathbb{R}^{(m+1)\times n}$$. 
 
 {:start="2"}
-1. Use `spdiag`[^spdiag]  to construct `A` as a `SparseTensor` (see the starter code for details).  Turn in your code.
+1. Use `spdiag`[^spdiag]  to construct `A` as a `SparseTensor` (see the starter code for details). `spdiag` is an ADCME function. See the documentation[^spdiag] for the syntax. Turn in your code.
 
 $\kappa$ is given by
 
 $$\kappa(x) = 2+1.5x$$
 
-[^spdiag]: [API Reference](https://kailaix.github.io/ADCME.jl/dev/api/)
+[^spdiag]: [API Reference](https://kailaix.github.io/ADCME.jl/dev/api/#ADCME.spdiag-Tuple{Integer,Vararg{Pair,N}%20where%20N})
 
 For debugging, check that your $$A_{ij}$$ is tridiagonal. You can use `run(sess, A)` to evaluate the `SparseTensor` `A`. You should get the following values:
 
