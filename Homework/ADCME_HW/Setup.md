@@ -154,13 +154,13 @@ You will see the same output as above `run(sess, err) = 2.9971950130484027e-6` a
 
 You can rotate the figure in 3D using your mouse.
 
-# Troubleshooting
+## Troubleshooting
 
 On some Mac systems, you may encounter the following warning when you run `using PyPlot`.
 
 ---
 
-On Mac, the PyPlot package gives the warning: PyPlot is using tkagg backend, which is known to cause crashes on MacOS (#410); use the MPLBACKEND environment variable to request a different backend.
+PyPlot is using tkagg backend, which is known to cause crashes on MacOS (#410); use the MPLBACKEND environment variable to request a different backend.
 
 ---
 
