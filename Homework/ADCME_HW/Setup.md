@@ -7,7 +7,7 @@ ADCME is tested and supported on Linux and MacOS systems. The support for custom
 
 If you only have a Windows machine, you can use the Stanford [Farmshare](https://srcc.stanford.edu/farmshare2) computing environment. ssh to `rice.stanford.edu` using your SUNetID.
 
-# Install ADCME
+# ADCME installation instructions
 
 ## 1. Install Julia
 
@@ -51,7 +51,7 @@ In case you use another shell (e.g., `zsh`) other than bash, you need to replace
 
 Restart your shell to apply the new settings. Type `julia` in your terminal and you should see a Julia prompt.
 
-![](./assets/julia_prompt.png)
+![](./assets/julia_prompt.png){:width="80%"}
 
 
 
@@ -111,7 +111,7 @@ julia> ADCME.precompile()
 If you encounter any compilation issue, you can report in Slack channel. 
 
 
-# Compile the Custom Operator for 2D Case
+### Compile the Custom Operator for 2D Case
 
 The final step explains how to compile the custom operator for the 2D Case. 
 
