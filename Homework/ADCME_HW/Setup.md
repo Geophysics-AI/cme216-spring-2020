@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: full-width
 title: Installation Guide For ADCME 
 ---
 
@@ -53,7 +53,7 @@ In case you use another shell (e.g., `zsh`) other than bash, you need to replace
 
 Restart your shell to apply the new settings. Type `julia` in your terminal and you should see a Julia prompt (Julia REPL).
 
-![](./assets/julia_prompt.png){:width="80%"}
+![](./assets/julia_prompt.png){:width="40%"}
 
 ## 2. Install the Project Dependencies
 
@@ -150,7 +150,7 @@ julia> include("example.jl")
  
 You will see the same output as above `run(sess, err) = 2.9971950130484027e-6` along with this figure:
 
-![](2020-05-15-20-15-06.png){:width="80%"}
+![](2020-05-15-20-15-06.png){:width="40%"}
 
 You can rotate the figure in 3D using your mouse.
 
