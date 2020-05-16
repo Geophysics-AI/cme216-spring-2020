@@ -49,9 +49,18 @@ $$\kappa(x) = a + bx$$
 
 Our task is to estimate the coefficient $$a$$ and $$b$$ in $$\kappa(x)$$. To this end, we place a sensor at $$x=0$$, and the sensor records the temperature as a time series $$u_0(t)$$, $$t\in (0,1)$$. 
 
-1. Write down the mathematical optimization problem for the inverse modeling.
+Recall that in the lecture slide [AD Slide 35/47](https://ericdarve.github.io/cme216-spring-2020/Slides/AD/AD.pdf#page=39), we formulate the inverse modeling problem as a PDE-constrained optimization problem
 
-Now we consider the discretization of the forward problem. We divide the domain $$[0,1]$$ into $$n$$ equispaced intervals. We consider the time horizon $$T = 1$$, and divide the time horizon $$[0,T]$$ into $$m$$ equispaced intervals. We use a finite difference scheme to solve the 1D heat equation Equations (1)--(3). Specifically, we use an implicit scheme for stability:
+$$\begin{aligned}
+\min_{a, b}\ & \int_{0}^t ( u(0, t)- u_0(t))^2 dt\\
+\mathrm{s.t.}\ & \frac{\partial u(x, t)}{\partial t} = \kappa(x)\Delta u(x, t) + f(x, t), \quad t\in (0,T), x\in (0,1) \\
+& -\kappa(0)\frac{\partial u(0,t)}{\partial x} = 0, t>0\\
+& u(1, t) = 0, t>0\\
+& u(x, 0) = 0, x\in [0,1]\\
+& \kappa(x) = a x + b
+\end{aligned}$$
+
+We consider the discretization of the above forward problem. We divide the domain $$[0,1]$$ into $$n$$ equispaced intervals. We consider the time horizon $$T = 1$$, and divide the time horizon $$[0,T]$$ into $$m$$ equispaced intervals. We use a finite difference scheme to solve the 1D heat equation Equations (1)--(3). Specifically, we use an implicit scheme for stability:
 
 $$\frac{u^{k+1}_i-u^k_i}{\Delta t} = \kappa_i \frac{u^{k+1}_{i+1}+u^{k+1}_{i-1}-2u^{k+1}_i}{\Delta x^2} + f_i^{k+1},$$
 
