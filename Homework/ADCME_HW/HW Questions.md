@@ -63,21 +63,25 @@ For the insulated boundary, we introduce the ghost node $$u_{0}^k$$ at location 
 
 $$-\kappa_1 \frac{u_2^{k}-u_0^k}{2\Delta x} = 0\tag{5}$$
 
-{:start="2"}
-1. Let 
+Let
 
 $$U^k = \begin{bmatrix}u_1^k\\u_2^k\\\vdots \\u_n^k\end{bmatrix}$$ 
 
-(note the index starts from 1 and ends with $$n$$), using the finite difference scheme, together with proper elimination of boundary values $$u_0^k$$, $$u_{n+1}^k$$, we have the following formula
+The index starts from 1 and ends with $$n$$. Using the finite difference scheme, together with eliminating the boundary values $$u_0^k$$, $$u_{n+1}^k$$, we have the following formula
 
 $$AU^{k+1} = U^k + F^{k+1}$$
 
-Express the matrix $$A\in \mathbb{R}^{n\times n}$$ in terms of $$\Delta t$$, $$\Delta x$$ and $$\{\kappa_i\}_{i=1}^{n}$$. What is $$F^{k+1}\in \mathbb{R}^n$$?
+{:start="2"}
+1. Express the matrix $$A\in \mathbb{R}^{n\times n}$$ in terms of $$\Delta t$$, $$\Delta x$$ and $$\{\kappa_i\}_{i=1}^{n}$$. What is $$F^{k+1}\in \mathbb{R}^n$$?
 
 Hint: Can you eliminate $$u_0^k$$ and $$u_{n+1}^k$$ in Eq. (4) using Eq. (5) and $$u_{n+1}^k=0$$?
 
-{:start="2"}
-1. The starter code `starter1.jl` precomputes the force vector $$F^k$$ and packs it into a matrix $$F\in \mathbb{R}^{(m+1)\times n}$$. Using `spdiag`[^spdiag]  to construct `A` as a `SparseTensor` (see the starter code for details). $$\kappa$$ is given by
+The starter code `starter1.jl` precomputes the force vector $$F^k$$ and packs it into a matrix $$F\in \mathbb{R}^{(m+1)\times n}$$. 
+
+{:start="3"}
+1. Use `spdiag`[^spdiag]  to construct `A` as a `SparseTensor` (see the starter code for details). 
+
+$\kappa$ is given by
 
 [^spdiag]: [API Reference](https://kailaix.github.io/ADCME.jl/dev/api/)
 
