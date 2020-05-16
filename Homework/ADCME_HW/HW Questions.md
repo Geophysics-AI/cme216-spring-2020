@@ -153,7 +153,7 @@ Here `@.` is for elementwise operations.
 
 ## Problem 3: Parameter Inverse Problem in 2D
 
-In this problem, we will digger deeper into how ADCME works with numerical solvers. We will use an important technique, custom operators, for incoporating C++ codes. This will be useful when you want to accelerate a performance critical part, or you want to reuse existing codes. To make the problem simple, the C++ kernel is prepared for you so what you need to do is to follow the instructions and call the custom operator. 
+In this problem, we will digger deeper into how ADCME works with numerical solvers. We will use an important technique, custom operators, for incorporating C++ codes. This will be useful when you want to accelerate a performance critical part, or you want to reuse existing codes. To make the problem simple, the `C++` kernel has been prepared for you.
 
 We consider the 2D case and $$T=1 $$. We assume that $$\Omega=[0,1]^2$$. We impose zero boundary conditions on the entire boundary $$\Gamma_D=\partial\Omega$$. Additionally, we assume the initial condition is zero everywhere. Two sensors are located at (0.2,0.2) and $$(0.8,0.8)$$ and these sensors record  time series of the temperature $$u_1(t)$$ and $$u_2(t)$$. The thermal diffusivity coefficient is a linear function of the space coordinates
 
@@ -187,6 +187,6 @@ The parameters used in this problem: $$m=50$$, $$n=50$$, $$T=1$$, $$N_T=50$$, $$
 Hint: 
 
 1. For checking your program, you can save your own `data.txt` from (b), try to estimate $$a$$, $$b$$, and $$c$$, and check if you can recover the true values. 
-2. If the optimization stop too early, you can multiply your loss function by a large number (e.g., $$10^{10}$$) and run your `BFGS!` optimizer again. 
+1. If the optimization stop too early, you can multiply your loss function by a large number (e.g., $$10^{10}$$) and run your `BFGS!` optimizer again. 
 
 
