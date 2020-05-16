@@ -51,7 +51,7 @@ In case you use another shell (e.g., `zsh`) other than bash, you need to replace
 
 ---
 
-Restart your shell to apply the new settings. Type `julia` in your terminal and you should see a Julia prompt.
+Restart your shell to apply the new settings. Type `julia` in your terminal and you should see a Julia prompt (Julia REPL).
 
 ![](./assets/julia_prompt.png){:width="80%"}
 
