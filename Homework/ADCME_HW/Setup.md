@@ -55,7 +55,7 @@ Restart your shell to apply the new settings. Type `julia` in your terminal and 
 
 ![](./assets/julia_prompt.png){:width="80%"}
 
-## 2. Install Project Dependencies
+## 2. Install the Project Dependencies
 
 This homework requires installing some Julia packages. Open your julia 
 
@@ -98,7 +98,7 @@ Expected output:
  5.0
 ```
 
-## 4. Test Custom Operator Support
+## 4. Test the Custom Operator Support
 
 In the homework, we will use custom operators. To test whether your installation works for custom operators, try
 
