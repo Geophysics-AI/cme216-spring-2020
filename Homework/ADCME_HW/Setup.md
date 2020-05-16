@@ -39,10 +39,10 @@ On the most recent version of MacOS, you need to replace `~/.bash_profile` by `~
 
 Download Julia 1.3 or 1.4 from the [official website](https://julialang.org/downloads/). Uncompress the tarball to any directory you want. There is a directory `bin` inside the Julia directory you just uncompressed. Add the absolute path of the `bin` directory to your `PATH` environment variable. 
 
-Suppose the Julia `bin` path is `<MyPath>` (e.g., `~/julia-1.4.1/bin`), execute the following command in your terminal:
+Suppose the Julia `bin` path is `<LocalJuliaPath>` (e.g., `~/julia-1.4.1/bin`), execute the following command in your terminal:
 
 ```bash
-echo 'export PATH=<MyPath>:$PATH' >> ~/.bashrc
+echo 'export PATH=<LocalJuliaPath>:$PATH' >> ~/.bashrc
 ```
 
 In case you use another shell (e.g., `zsh`) other than bash, you need to replace `~/.bashrc` in the command with the corresponding startup file. You can use `echo $SHELL` to check which shell you are using. 
