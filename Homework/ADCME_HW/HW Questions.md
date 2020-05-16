@@ -79,7 +79,7 @@ Hint: Can you eliminate $$u_0^k$$ and $$u_{n+1}^k$$ in Eq. (4) using Eq. (5) and
 The starter code `starter1.jl` precomputes the force vector $$F^k$$ and packs it into a matrix $$F\in \mathbb{R}^{(m+1)\times n}$$. 
 
 {:start="3"}
-1. Use `spdiag`[^spdiag]  to construct `A` as a `SparseTensor` (see the starter code for details). 
+1. Use `spdiag`[^spdiag]  to construct `A` as a `SparseTensor` (see the starter code for details).  Turn in your code.
 
 $\kappa$ is given by
 
@@ -98,7 +98,7 @@ $A_{10,10}$ | $228$
 The computational graph of the dynamical system can be efficiently constructed using `while_loop`. 
 
 {:start="4"}
-1. Implement the forward computation using `while_loop`. 
+1. Implement the forward computation using `while_loop`. Turn in your code.
 
 For debugging, you can plot the temperature on the left side, i.e., $$u(0,t)$$. You should have something similar to the following plot 
 
@@ -107,7 +107,7 @@ For debugging, you can plot the temperature on the left side, i.e., $$u(0,t)$$. 
 Now we are ready to perform inverse modeling. 
 
 {:start="5"}
-1. Read the starter code `starter2.jl `carefully and complete the missing implementations. What is your estimate `a` and `b`?
+1. Read the starter code `starter2.jl `carefully and complete the missing implementations. Turn in your code. What is your estimate `a` and `b`?
 
 ## Problem 2: Function Inverse Problem
 
