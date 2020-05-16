@@ -49,7 +49,7 @@ $$\kappa(x) = a + bx$$
 
 Our task is to estimate the coefficient $$a$$ and $$b$$ in $$\kappa(x)$$. To this end, we place a sensor at $$x=0$$, and the sensor records the temperature as a time series $$u_0(t)$$, $$t\in (0,1)$$. 
 
-Recall that in the lecture slide [AD Slide 35/47](https://ericdarve.github.io/cme216-spring-2020/Slides/AD/AD.pdf#page=39), we formulate the inverse modeling problem as a PDE-constrained optimization problem
+Recall that in lecture slide [35](https://ericdarve.github.io/cme216-spring-2020/Slides/AD/AD.pdf#page=39)/47 of AD.pdf, we formulate the inverse modeling problem as a PDE-constrained optimization problem
 
 $$\begin{aligned}
 \min_{a, b}\ & \int_{0}^t ( u(0, t)- u_0(t))^2 dt\\
@@ -80,14 +80,13 @@ The index starts from 1 and ends with $$n$$. Using the finite difference scheme,
 
 $$AU^{k+1} = U^k + F^{k+1}$$
 
-{:start="2"}
 1. Express the matrix $$A\in \mathbb{R}^{n\times n}$$ in terms of $$\Delta t$$, $$\Delta x$$ and $$\{\kappa_i\}_{i=1}^{n}$$. What is $$F^{k+1}\in \mathbb{R}^n$$?
 
 Hint: Can you eliminate $$u_0^k$$ and $$u_{n+1}^k$$ in Eq. (4) using Eq. (5) and $$u_{n+1}^k=0$$?
 
 The starter code `starter1.jl` precomputes the force vector $$F^k$$ and packs it into a matrix $$F\in \mathbb{R}^{(m+1)\times n}$$. 
 
-{:start="3"}
+{:start="2"}
 1. Use `spdiag`[^spdiag]  to construct `A` as a `SparseTensor` (see the starter code for details).  Turn in your code.
 
 $\kappa$ is given by
@@ -106,7 +105,7 @@ $A_{10,10}$ | $228$
 
 The computational graph of the dynamical system can be efficiently constructed using `while_loop`. 
 
-{:start="4"}
+{:start="3"}
 1. Implement the forward computation using `while_loop`. Turn in your code.
 
 For debugging, you can plot the temperature on the left side, i.e., $$u(0,t)$$. You should have something similar to the following plot 
@@ -115,7 +114,7 @@ For debugging, you can plot the temperature on the left side, i.e., $$u(0,t)$$. 
 
 Now we are ready to perform inverse modeling. 
 
-{:start="5"}
+{:start="4"}
 1. Read the starter code `starter2.jl `carefully and complete the missing implementations. Turn in your code. What is your estimate `a` and `b`?
 
 ## Problem 2: Function Inverse Problem
