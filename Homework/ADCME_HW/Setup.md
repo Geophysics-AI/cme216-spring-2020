@@ -49,7 +49,7 @@ In case you use another shell (e.g., `zsh`) other than bash, you need to replace
 
 ---
 
-Restart your shell to apply the new settings. Type `julia` in your terminal and you will see a Julia prompt.
+Restart your shell to apply the new settings. Type `julia` in your terminal and you should see a Julia prompt.
 
 ![](./assets/julia_prompt.png)
 
@@ -113,7 +113,7 @@ If you encounter any compilation issue, you can report in Slack channel.
 
 # Compile the Custom Operator for 2D Case
 
-This guide explains how to compile the custom operator for the 2D Case. 
+The final step explains how to compile the custom operator for the 2D Case. 
 
 In `2DCase`, you have two source files: `HeatEquation.h` and `HeatEquation.cpp`. You need to compile them into a shared library, which you can use in the inverse modeling. To do so, go into `2DCase` directory and open a Julia prompt in a terminal. 
 
@@ -127,4 +127,29 @@ julia> ADCME.make()
 
 You will see there is a `libHeatEquation.dylib` (MacOS) or `libHeatEquation.so` (Linux) in your `build` directory. 
 
-Run the `Case2D/example.jl` file to check if the shared library works. 
+Run the `Case2D/example.jl` file to check if the shared library works. You may see some warning messages. If you see the following output at the end:
+
+```shell
+run(sess, err) = 2.9971950130484027e-6
+Congratulations! `example.jl` completed successfully
+```
+
+the code ran successfully.
+
+If you run the code within the Julia REPL, you will see a figure. For this, start julia:
+
+```shell
+$ julia
+```
+
+Then type:
+
+```shell
+julia> include("example.jl")
+```
+ 
+You will see the same output as above `run(sess, err) = 2.9971950130484027e-6` along with this figure:
+
+![](2020-05-15-20-15-06.png){:width="80%"}
+
+You can rotate the figure in 3D using your mouse.
