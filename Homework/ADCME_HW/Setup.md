@@ -123,6 +123,8 @@ julia> ADCME.cmake()
 julia> ADCME.make()
 ```
 
+This will compile and link the `.h` and `.cpp` files (in the directory above `build`) with the TensorFlow dynamic library shipped with the Python TensorFlow wrapper.
+
 You will see that there is a `libHeatEquation.dylib` (MacOS) or `libHeatEquation.so` (Linux) in your `build` directory. 
 
 Run the `Case2D/example.jl` file to check if the shared library works. You may see some warning messages. If you see the following output at the end:
@@ -152,15 +154,21 @@ You will see the same output as above `run(sess, err) = 2.9971950130484027e-6` a
 
 You can rotate the figure in 3D using your mouse.
 
+# Troubleshooting
+
+On some Mac systems, you may encounter the following warning when you run `using PyPlot`.
+
 ---
 
-Note: On some Mac systems, you may encounter the following warning when you run `using PyPlot`.
+On Mac, the PyPlot package gives the warning: PyPlot is using tkagg backend, which is known to cause crashes on MacOS (#410); use the MPLBACKEND environment variable to request a different backend.
 
-> On Mac, the PyPlot package gives the warning: PyPlot is using tkagg backend, which is known to cause crashes on MacOS (#410); use the MPLBACKEND environment variable to request a different backend.
+---
 
-To fix this problem, run the following command
+To fix this problem, run the following commands at a Julia prompt:
+
 ```julia
-using Conda
-Conda.add("pyqt", :ADCME)
-using Pkg
-Pkg.build("PyPlot")
+julia> using Conda
+julia> Conda.add("pyqt", :ADCME)
+julia> using Pkg
+julia> Pkg.build("PyPlot")
+```
