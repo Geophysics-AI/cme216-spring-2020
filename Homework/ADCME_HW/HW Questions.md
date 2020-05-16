@@ -54,6 +54,7 @@ Our task is to estimate the coefficient $$a$$ and $$b$$ in $$\kappa(x)$$. To thi
 Now we consider the discretization of the forward problem. We divide the domain $$[0,1]$$ into $$n$$ equispaced intervals. We consider the time horizon $$T = 1$$, and divide the time horizon $$[0,T]$$ into $$m$$ equispaced intervals. We use a finite difference scheme to solve the 1D heat equation Equations (1)--(3). Specifically, we use an implicit scheme for stability:
 
 $$\frac{u^{k+1}_i-u^k_i}{\Delta t} = \kappa_i \frac{u^{k+1}_{i+1}+u^{k+1}_{i-1}-2u^{k+1}_i}{\Delta x^2} + f_i^{k+1},$$
+
 $$k=1,2,\ldots,m, i=1,2,\ldots, n \tag{4}$$
 
 where $$\Delta t$$ is the time interval, $$\Delta x$$ is the space interval, $$u_i^k$$ is the numerical approximation to $$u((i-1)\Delta x, (k-1)\Delta t)$$, $$\kappa_i$$ is the numerical approximation to $$\kappa((i-1)\Delta x) = a + b(i-1)\Delta x$$, and $$f_i^{k} = f((i-1)\Delta x, (k-1)\Delta t)$$.
