@@ -13,7 +13,7 @@ For this homework, you need to install Julia and ADCME. See this [installation g
 
 ## Background
 
-The **thermal diffusivity** is the measure of the ease at which the heat can pass through a material. Let $$u$$ be the temperature, and $$\kappa$$ be the thermal diffusivity. The heat transfer process is described by the Fourier's law 
+The **thermal diffusivity** is the measure of the ease with which heat can diffuse through a material. Let $$u$$ be the temperature, and $$\kappa$$ be the thermal diffusivity. The heat transfer process is described by the Fourier law 
 
 $$\frac{\partial u(\mathbf{x}, t)}{\partial t} = \kappa\Delta u(\mathbf{x}, t) + f(\mathbf{x}, t), \quad t\in (0,T), x\in \Omega \tag{1}$$
 
@@ -21,7 +21,7 @@ Here $$f$$ is the heat source and $$\Omega$$ is the domain.
 
 To make use of the heat equation, we need additional information. 
 
-- **Initial Condition**: the initial temperature distribution is given $$u(\mathbf{x}, 0) = u_0(\mathbf{x})$$. 
+- **Initial Condition**: the initial temperature distribution is given by $$u(\mathbf{x}, 0) = u_0(\mathbf{x})$$. 
 
 - **Boundary Conditions**: the temperature of the material is affected by what happens on the boundary. There are several possible boundary conditions. In this exercise we consider two of them:
 
@@ -35,7 +35,7 @@ To make use of the heat equation, we need additional information.
 
   Here $$n$$ is the outward normal vector. 
 
-  The boundaries $$\Gamma_D$$ and $$\Gamma_N$$ satisfy $$\partial \Omega = \Gamma_D \cup \Gamma_N, \Gamma_D\cap \Gamma_N=\empty$$.
+  The boundaries $$\Gamma_D$$ and $$\Gamma_N$$ satisfy $$\partial \Omega = \Gamma_D \cup \Gamma_N, \Gamma_D\cap \Gamma_N = \emptyset$$.
 
 Assume that we want to experiment with a piece of new material. The thermal diffusivity coefficient of the material is an unknown function of the space. Our goal of the experiment is to find out the thermal diffusivity coefficient. To this end, we place some sensors in the domain or on the boundary. The measurements are sparse in the sense that only the temperature from those sensors---but nowhere else---are collected. Namely, let the sensors be located at $$\{\mathbf{x}_i\}_{i=1}^M$$, then we can observe $$\{\hat u(\mathbf{x}_i, t)\}_{i=1}^M$$, i.e., the measurements of $$\{ u(\mathbf{x}_i, t)\}_{i=1}^M$$. We also assume that the boundary conditions, initial conditions and the source terms are known. 
 
@@ -43,17 +43,18 @@ Assume that we want to experiment with a piece of new material. The thermal diff
 
 ## Problem 1: Parameter Inverse Problem in 1D
 
-We first consider the simpler 1D case. In this problem the material is a rod $$\Omega=[0,1]$$. We consider a homogeneous (zero) fixed boundary condition on the right side, and an insulated boundary on the left side. The initial temperature is zero everywhere, i.e., $$u(x, 0)=0$$, $$x\in [0,1]$$. The source term is $$f(x, t) = \exp(-10(x-0.5)^2)$$, and $$\kappa(x)$$ is a function of space
+We first consider the 1D case. In this problem, the material is a rod $\Omega=[0,1]$. We consider a homogeneous (zero) fixed boundary condition on the right side, and an insulated boundary on the left side. The initial temperature is zero everywhere, i.e., $u(x, 0)=0$, $$x\in [0,1]$$. The source term is $$f(x, t) = \exp(-10(x-0.5)^2)$$, and $$\kappa(x)$$ is a function of space
 
 $$\kappa(x) = a + bx$$
 
 Our task is to estimate the coefficient $$a$$ and $$b$$ in $$\kappa(x)$$. To this end, we place a sensor at $$x=0$$, and the sensor records the temperature as a time series $$u_0(t)$$, $$t\in (0,1)$$. 
 
-**(a)** Write down the mathematical optimization problem for the inverse modeling.
+1. Write down the mathematical optimization problem for the inverse modeling.
 
-Now we consider the discretization of the forward problem. We divide the domain $$[0,1]$$ into $$n$$ equispaced intervals. We consider the time horizon $$T = 1$$, and divide the time horizon $$[0,T]$$ into $$m$$ equispaced intervals. We use a finite difference scheme to solve the 1D heat equation Equations 1-3. Specifically, we use an implicit scheme for stability
+Now we consider the discretization of the forward problem. We divide the domain $$[0,1]$$ into $$n$$ equispaced intervals. We consider the time horizon $$T = 1$$, and divide the time horizon $$[0,T]$$ into $$m$$ equispaced intervals. We use a finite difference scheme to solve the 1D heat equation Equations (1)--(3). Specifically, we use an implicit scheme for stability:
 
-$$\frac{u^{k+1}_i-u^k_i}{\Delta t} = \kappa_i \frac{u^{k+1}_{i+1}+u^{k+1}_{i-1}-2u^{k+1}_i}{\Delta x^2} + f_i^{k+1}, \quad k=1,2,\ldots,m, i=1,2,\ldots, n \tag{4}$$
+$$\frac{u^{k+1}_i-u^k_i}{\Delta t} = \kappa_i \frac{u^{k+1}_{i+1}+u^{k+1}_{i-1}-2u^{k+1}_i}{\Delta x^2} + f_i^{k+1},$$
+$$k=1,2,\ldots,m, i=1,2,\ldots, n \tag{4}$$
 
 where $$\Delta t$$ is the time interval, $$\Delta x$$ is the space interval, $$u_i^k$$ is the numerical approximation to $$u((i-1)\Delta x, (k-1)\Delta t)$$, $$\kappa_i$$ is the numerical approximation to $$\kappa((i-1)\Delta x) = a + b(i-1)\Delta x$$, and $$f_i^{k} = f((i-1)\Delta x, (k-1)\Delta t)$$.
 
