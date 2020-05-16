@@ -9,6 +9,8 @@ If you only have a Windows machine, you can use the Stanford [Farmshare](https:/
 
 # ADCME installation instructions
 
+ADCME has been tested with Julia 1.3/1.4 (Linux) and Julia 1.3 (MacOS). Julia 1.4 on MacOS will not work because of some incompatibility with the current version of TensorFlow. If you have some earlier version of Julia already installed with a version at least 1.0, it should work and you can skip the steps below. Go straight to step 2 "Install Project Dependencies."
+
 ## 1. Install Julia
 
 ### For MacOS
@@ -53,8 +55,6 @@ Restart your shell to apply the new settings. Type `julia` in your terminal and 
 
 ![](./assets/julia_prompt.png){:width="80%"}
 
-
-
 ## 2. Install Project Dependencies
 
 This homework requires installing some Julia packages. Open your julia 
@@ -72,8 +72,6 @@ julia> Pkg.add("DelimitedFiles")
 julia> Pkg.add("PyCall")
 julia> Pkg.add("PyPlot")
 ```
-
-Installing ADCME will take up to 10 minutes for the first time. 
 
 ## 3. Start using ADCME
 
@@ -98,10 +96,9 @@ Expected output:
  5.0
 ```
 
-
 ## 4. Test Custom Operator Support
 
-In the homework we will use custom operators. To test whether your installation works for custom operators, try
+In the homework, we will use custom operators. To test whether your installation works for custom operators, try
 
 ```julia
 julia> using ADCME
@@ -109,7 +106,6 @@ julia> ADCME.precompile()
 ```
 
 If you encounter any compilation issue, you can report in Slack channel. 
-
 
 ### Compile the Custom Operator for 2D Case
 
@@ -125,7 +121,7 @@ julia> ADCME.cmake()
 julia> ADCME.make()
 ```
 
-You will see there is a `libHeatEquation.dylib` (MacOS) or `libHeatEquation.so` (Linux) in your `build` directory. 
+You will see that there is a `libHeatEquation.dylib` (MacOS) or `libHeatEquation.so` (Linux) in your `build` directory. 
 
 Run the `Case2D/example.jl` file to check if the shared library works. You may see some warning messages. If you see the following output at the end:
 
