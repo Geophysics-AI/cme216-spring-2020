@@ -83,7 +83,7 @@ julia> Pkg.add("PyCall")
 julia> Pkg.add("PyPlot")
 ```
 
-This will take up to 10 minutes for the first time. 
+Installing ADCME will take up to 10 minutes for the first time. 
 
 ## 3. Start using ADCME
 
@@ -121,7 +121,7 @@ julia> ADCME.precompile()
 If you encounter any compilation issue, you can report in Slack channel. 
 
 
-# Compare the Custom Operator for 2D Case
+# Compile the Custom Operator for 2D Case
 
 This guide explains how to compile the custom operator for the 2D Case. 
 
