@@ -39,31 +39,21 @@ On the most recent version of MacOS, you need to replace `~/.bash_profile` by `~
 
 Download Julia 1.3 or 1.4 from the [official website](https://julialang.org/downloads/). Uncompress the tarball to any directory you want. There is a directory `bin` inside the Julia directory you just uncompressed. Add the absolute path of the `bin` directory to your `PATH` environment variable. 
 
----
-
-Example:
-
-**Linux**
+Suppose the Julia `bin` path is `<MyPath>` (e.g., `~/julia-1.4.1/bin`), execute the following command in your terminal:
 
 ```bash
-echo 'export PATH=:$PATH' >> ~/.bashrc
+echo 'export PATH=<MyPath>:$PATH' >> ~/.bashrc
 ```
 
-Then restart your shell to apply the new settings.
-
-**Mac**
-
-```bash
-echo 'export PATH=:$PATH' >> ~/.bash_profile
-```
-
-Then restart your shell to apply the new settings.
+In case you use another shell (e.g., `zsh`) other than bash, you need to replace `~/.bashrc` in the command with the corresponding startup file. You can use `echo $SHELL` to check which shell you are using. 
 
 ---
 
-Type `julia` in the terminal, and you should be able to open a Julia prompt. 
+Restart your shell to apply the new settings. Type `julia` in your terminal and you will see a Julia prompt.
 
-Open a new terminal and type `julia`. You should see a `julia` prompt.
+![](./assets/julia_prompt.png)
+
+
 
 ## 2. Install Project Dependencies
 
