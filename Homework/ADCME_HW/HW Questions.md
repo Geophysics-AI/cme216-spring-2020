@@ -92,21 +92,31 @@ The starter code `starter1.jl` precomputes the force vector $$F^k$$ and packs it
 
 $\kappa$ is given by
 
-[^spdiag]: [API Reference](https://kailaix.github.io/ADCME.jl/dev/api/)
-
 $$\kappa(x) = 2+1.5x$$
 
- For debugging, check that your $$A_{ij}$$ is tridiagonal (You can use `run(sess, A)` to evaluate the `SparseTensor` `A`), and 
+[^spdiag]: [API Reference](https://kailaix.github.io/ADCME.jl/dev/api/)
 
-$$A_{11} = 201, A_{12} = -200, A_{21} = -101.5, A_{33} = 207, A_{10, 10} = 228$$
+For debugging, check that your $$A_{ij}$$ is tridiagonal. You can use `run(sess, A)` to evaluate the `SparseTensor` `A`. You should get the following values:
 
-**(d)** The computational graph of the dynamical system can be efficiently constructed using `while_loop`. Implement the forward computation using `while_loop`. For debugging, you can plot the temperature on the left side, i.e., $$u(0,t)$$. You should have something similar to the following plot 
+$A_{11}$ | $201$
+$A_{12}$ | $-200$
+$A_{21}$ | $-101.5$
+$A_{33}$ | $207$
+$A_{10,10}$ | $228$
 
+The computational graph of the dynamical system can be efficiently constructed using `while_loop`. 
 
+{:start="4"}
+1. Implement the forward computation using `while_loop`. 
+
+For debugging, you can plot the temperature on the left side, i.e., $$u(0,t)$$. You should have something similar to the following plot 
 
 ![ex1_reference](./assets/ex1_reference.png)
 
-**(e)** Now we are ready to perform inverse modeling. Read  the starter code `starter2.jl `carefully and complete the missing implementations. What is your estimate `a` and `b`?
+Now we are ready to perform inverse modeling. 
+
+{:start="5"}
+1. Read the starter code `starter2.jl `carefully and complete the missing implementations. What is your estimate `a` and `b`?
 
 ## Problem 2: Function Inverse Problem
 
