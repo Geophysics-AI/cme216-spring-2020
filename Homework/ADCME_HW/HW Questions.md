@@ -122,25 +122,29 @@ Now we are ready to perform inverse modeling.
 
 Let us consider the function inverse problem, where we do not know the form of $\kappa(x)$. To this end, we substitute $\kappa(x)$ using a neural network. We will use physics constrained learning (PCL) to train $\kappa(x)$ from the temperature data $u_0(t)$. 
 
-Since we do not know the form of $\kappa(x)$, we need more data to solve the inverse problem. Therefore, we assume that we place sensors at the first 25 locations in the discretized grid. The obervation data `data_pcl.txt` is a $(m+1)\times 25$ matrix, each column corresponds to the observation at one sensor. 
+Since we do not know the form of $\kappa(x)$, we need more data to solve the inverse problem. Therefore, we assume that we place sensors at the first 25 locations in the discretized grid. The observation data `data_pcl.txt` is a $(m+1)\times 25$ matrix; each column corresponds to the observation at one sensor. 
 
-In this problem, let us parametrize $\kappa(x)$ with a fully conneted neural network with 3 hidden layers, 20 neurons per layer, and $\tanh$ activation functions. In ADCME, such a neural network can be constructed using 
+In this problem, let us parametrize $\kappa(x)$ with a fully connected neural network with 3 hidden layers, 20 neurons per layer, and $\tanh$ activation functions. In ADCME, such a neural network can be constructed using 
 
 ```julia
 y = fc(x, [20,20,20,1])
 ```
 
-Here $\texttt{x}$ is a $n\times 1$ input, $\texttt{y}$ is a $n\times 1$ output, $[20,20,20,1]$ is the number of neurons per layer (last output layer only has 1 neuron), and $\texttt{fc}$ stands for "fully-connected". 
+Here x is a $n \times 1$ input, y is a $n \times 1$ output, $[20,20,20,1]$ is the number of neurons per layer (last output layer only has 1 neuron), and fc stands for "fully-connected". 
 
-**(a)** Assume that the neural network is written as $\kappa_\theta(x)$, where $\theta$ is the weights and biases. Write down the mathematical optimization problem for the inverse modeling. 
+Assume that the neural network is written as $\kappa_\theta(x)$, where $\theta$ is the weights and biases.
 
-**(b)** Complete the starter code for conducting physics constrained learning. The observation data is provided as `data_pcl.txt`. Run the program several times to ensure you do not terminate early at a bad local minimum. Plot your estimated $\kappa_\theta$ curve. 
+{:start="5"} 
+1. Write down the mathematical optimization problem for the inverse modeling. 
+1. Complete the starter code for conducting physics constrained learning. The observation data is provided as `data_pcl.txt`. Run the program several times to ensure you do not terminate early at a bad local minimum. Turn in your code.
+1. Plot your estimated $\kappa_\theta$ curve. 
 
 Hint: Your curve should look like the following
 
 ![](./assets/kappa.png)
 
-**(c)** Add 1% and 10% Gaussian noises to the dataset and redo (b), what do you find? Plot the estimated  $\kappa_\theta$ curve. 
+{:start="8"} 
+1. Add 1% and 10% Gaussian noise to the dataset and redo (7). Plot the estimated $\kappa_\theta$ curve. Comment on your observations.
 
 Hint: You can add noises by 
 
@@ -172,7 +176,7 @@ where $i=2,3,\ldots, m, j=2,3,\ldots, n, k=1,2,\ldots, N_T$.
 
 Here $u_{ij}^k$ is an approximation to $u((i-1)h, (j-1)h, (k-1)\Delta t)$, and $f_{ij}^k = f((i-1)h, (j-1)h, (k-1)\Delta t)$.
 
-We flatten $\{u_{ij}^k\}$ to a vector $U^k$, using $i$ as the leading dimension, i.e., the order is $u_{11}^k, u_{12}^k, \ldots$ We also flatten $f_{ij}^{k+1}$ and $\kappa_{ij}$ as well. 
+We flatten $\\{u_{ij}^k\\}$ to a vector $U^k$, using $i$ as the leading dimension, i.e., the order is $u_{11}^k, u_{12}^k,$&hellip; We also flatten $f_{ij}^{k+1}$ and $\kappa_{ij}$ as well. 
 
 The following question reminds you of extending an AD framework using custom operators. In the starter code, we provide a function, `heat_equation`, a differentiable solver, which is already implemented for you using custom operators. Read the instruction on how to compile the custom operator, and answer the following two questions. 
 
