@@ -69,11 +69,17 @@ and type
 julia> using Pkg
 julia> Pkg.add("ADCME")
 julia> Pkg.add("DelimitedFiles")
+julia> Pkg.add("Conda")
 julia> Pkg.add("PyCall")
 julia> Pkg.add("PyPlot")
+julia> Pkg.build("PyPlot") # important: force PyPlot to use the correct Python version
 ```
 
 Installing ADCME will take up to 10 minutes for the first time. 
+
+
+
+
 
 ## 3. Start using ADCME
 
@@ -128,3 +134,18 @@ julia> ADCME.make()
 You will see there is a `libHeatEquation.dylib` (MacOS) or `libHeatEquation.so` (Linux) in your `build` directory. 
 
 Run the `Case2D/example.jl` file to check if the shared library works. 
+
+
+---
+
+Note: On some Macs, you may encounter the following warning when you run `using PyPlot`.
+
+> On Mac, the PyPlot package gives the warning: PyPlot is using tkagg backend, which is known to cause crashes on MacOS (#410); use the MPLBACKEND environment variable to request a different backend.
+
+To fix this problem, run the following command
+```julia
+using Conda
+Conda.add("pyqt", :ADCME)
+using Pkg
+Pkg.build("PyPlot")
+```
