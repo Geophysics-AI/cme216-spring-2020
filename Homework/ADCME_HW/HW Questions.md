@@ -86,7 +86,7 @@ $$AU^{k+1} = U^k + F^{k+1}$$
 
 Hint: Can you eliminate $u_0^k$ and $u_{n+1}^k$ in Eq. (4) using Eq. (5) and $u_{n+1}^k=0$ ?
 
-The starter code **starter1.jl** precomputes the force vector $F^k$ and packs it into a matrix $F\in \mathbb{R}^{(m+1)\times n}$. 
+The starter code `Case1D/starter1.jl` precomputes the force vector $F^k$ and packs it into a matrix $F\in \mathbb{R}^{(m+1)\times n}$. 
 
 {:start="2"}
 1. Use `spdiag`[^spdiag]  to construct `A` as a `SparseTensor` (see the starter code for details). `spdiag` is an ADCME function. See the documentation[^spdiag] for the syntax. Turn in your code.
@@ -117,7 +117,7 @@ For debugging, you can plot the temperature on the left side, i.e., $u(0,t)$. Yo
 Now we are ready to perform inverse modeling. 
 
 {:start="4"}
-1. Read the starter code **starter2.jl** carefully and complete the missing implementations. Turn in your code. What is your estimate `a` and `b`?
+1. Read the starter code `Case1D/starter2.jl` carefully and complete the missing implementations. Turn in your code. What is your estimate `a` and `b`?
 
 ## Problem 2: Function Inverse Problem
 
@@ -137,7 +137,7 @@ Assume that the neural network is written as $\kappa_\theta(x)$, where $\theta$ 
 
 {:start="5"} 
 1. Write down the mathematical optimization problem for the inverse modeling. 
-1. Complete the starter code for conducting physics constrained learning. The observation data is provided as `data_pcl.txt`. Run the program several times to ensure you do not terminate early at a bad local minimum. Turn in your code.
+1. Complete the starter code `Case1D/starter3.jl` for conducting physics constrained learning. The observation data is provided as `data_pcl.txt`. Run the program several times to ensure you do not terminate early at a bad local minimum. Turn in your code.
 1. Plot your estimated $\kappa_\theta$ curve. 
 
 Hint: Your curve should look like the following
@@ -158,7 +158,7 @@ Here `@.` is for elementwise operations.
 
 ## Problem 3: Parameter Inverse Problem in 2D
 
-In this problem, we will explore more deeply how ADCME works with numerical solvers. We will use an important technique, custom operators, for incorporating C++ codes. This will be useful when you want to accelerate a performance-critical part, or you want to reuse existing codes. To make the problem simple, the `C++` kernel has been prepared for you.
+In this problem, we will explore more deeply how ADCME works with numerical solvers. We will use an important technique, custom operators, for incorporating C++ codes. This will be useful when you want to accelerate a performance-critical part, or you want to reuse existing codes. To make the problem simple, the `C++` kernel has been prepared for you. For this homework, you will be working with `Case2D/starter.jl`. 
 
 We consider the 2D case and $T=1 $. We assume that $\Omega=[0,1]^2$. We impose zero boundary conditions on the entire boundary $\Gamma_D=\partial\Omega$. Additionally, we assume that the initial condition is zero everywhere. Two sensors are located at $(0.2,0.2)$ and $(0.8,0.8)$ and these sensors record time series of the temperature $u_1(t)$ and $u_2(t)$. The thermal diffusivity coefficient is a linear function of the space coordinates
 
@@ -180,7 +180,9 @@ Here $u_{ij}^k$ is an approximation to $u((i-1)h, (j-1)h, (k-1)\Delta t)$, and $
 
 We flatten $\\{u_{ij}^k\\}$ to a 1D vector $U^k$, using $i$ as the leading dimension, i.e., the ordering of the vector is $u_{11}^k, u_{12}^k, $&hellip; We also flatten $f_{ij}^{k+1}$ and $\kappa_{ij}$ as well. 
 
-The following question reminds you of extending an AD framework using custom operators. In the starter code, we provide a function, `heat_equation`, a differentiable solver, which is already implemented for you using custom operators. Read the instruction on how to compile the custom operator, and answer the following two questions. 
+The following question shows how to extend an AD framework using custom operators (also known as _external function support_ in the AD community). In the starter code `Case2D/starter.jl`, we provide a function, `heat_equation`, a differentiable heat equation solver, which is already implemented for you using C++. By using custom operators, you are able to replace the PDE solver node in the computational graph using your own specific implementation, which may be faster or more efficient. 
+
+Read the instruction on how to compile the custom operator, and answer the following two questions. 
 
 {:start="9"}
 1. Similar to Problem 1, implement the forward computation using `while_loop`. Plot the curve of the temperature at $(0.5,0.5)$. 
