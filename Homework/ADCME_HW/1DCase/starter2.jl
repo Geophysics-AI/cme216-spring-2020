@@ -29,7 +29,7 @@ Hint: the following syntax might be useful
 ∘ Indexing: o1[1], o1[1:3], o1[3:end-1] =#
 A = spdiag(n, -1 => ____, 0 => ____, 1 => ____)
 
-function condition(i, tas...)
+function condition(i, u_arr)
     i <= m + 1
 end
 

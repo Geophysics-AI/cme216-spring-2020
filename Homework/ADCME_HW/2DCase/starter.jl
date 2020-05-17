@@ -6,6 +6,15 @@ using PyPlot
 using Random
 Random.seed!(233)
 
+"""
+u - temperature (the state variable)
+f - source term 
+kappa - diffusivity coefficient 
+dt - time step 
+dx - space step 
+m, n - #intervals for x and y directions
+see README.md for detailed explaination. 
+"""
 function heat_equation(u, f, kappa, dt, dx, m, n)
     heat_equation_ = load_op_and_grad("./build/libHeatEquation", "heat_equation")
     u, f, kappa, dt, dx, m, n = convert_to_tensor([u,f,kappa,dt,dx,m,n], [Float64,Float64,Float64,Float64,Float64,Int64,Int64])
@@ -40,7 +49,7 @@ for i = 1:NT + 1
 end
 
 ########################### Simulation Loop ########################### 
-function condition(i, u)
+function condition(i, u_arr)
     i <= NT + 1
 end
 

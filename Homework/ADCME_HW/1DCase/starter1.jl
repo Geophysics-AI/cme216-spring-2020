@@ -27,7 +27,7 @@ Hint: the following syntax might be useful
 ∘ https://kailaix.github.io/ADCME.jl/dev/api/ =#
 A = spdiag(n, -1 => ____, 0 => ____, 1 => ____)
 
-function condition(i, tas...)
+function condition(i, u_arr)
     i <= m + 1
 end
 
