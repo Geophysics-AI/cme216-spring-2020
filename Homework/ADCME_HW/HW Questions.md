@@ -185,7 +185,7 @@ In this problem, we extend the AD framework using custom operators (also known a
 Read the [instructions](http://127.0.0.1:4000/cme216-spring-2020/Homework/ADCME_HW/Setup.html) on how to compile the custom operator, and answer the following two questions. 
 
 {:start="10"}
-1. Similar to Problem 1, implement the forward computation using `while_loop`. Plot the curve of the temperature at $(0.5,0.5)$. 
+1. Similar to Problem 1, implement the forward computation using `while_loop` with the starter code `Case2D/starter.jl`. Plot the curve of the temperature at $(0.5,0.5)$. 
 
 Hint: you should obtain something similar to
 
@@ -196,9 +196,9 @@ The parameters used in this problem are: $m=50$, $n=50$, $T=1$, $N_T=50$, $f(\ma
 The data file `data.txt` is a $(N_T+1)\times 2$ matrix, where the first and the second columns are $u_1(t)$ and $u_2(t)$ respectively. 
 
 {:start="11"}
-1. Use these data to do inverse modeling and report the values $a, b$ and $c$. We do not provide a starter code intentionally, but the forward computation codes in (b) and Problem 1 will be helpful. 
+1. Use these data to do inverse modeling and report the values $a, b$ and $c$. We do not provide a starter code intentionally, but the forward computation codes in `Case2D/starter.jl` and neural-network-based inverse modeling codes in `Case1D/starter3.jl` will be helpful. 
 
 Hint: 
 
-- For checking your program, you can save your own `data.txt` from (b), try to estimate $a$, $b$, and $c$, and check if you can recover the true values. 
+- For checking your program, you can save your own `data.txt` from Question 10, try to estimate $a$, $b$, and $c$, and check if you can recover the true values. 
 - If the optimization stops too early, you can multiply your loss function by a large number (e.g., $10^{10}$) and run your `BFGS!` optimizer again. An alternative approach is to use a smaller tolerance. See the `BFGS!` function documentation for details. 
