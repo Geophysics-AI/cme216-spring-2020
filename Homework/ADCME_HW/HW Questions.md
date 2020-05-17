@@ -28,11 +28,11 @@ To make use of the heat equation, we need additional information.
 
   (1) Temperature fixed at a boundary,
 
-  $$u(\mathbf{x}, t) = 0, \mathbf{x}\in \Gamma_D \tag{2}$$
+  $$u(\mathbf{x}, t) = 0, \quad \mathbf{x}\in \Gamma_D \tag{2}$$
 
   (2) Insulated boundary. The heat flow can be prescribed (known as the _no flow_ boundary condition)
 
-  $$-\kappa\frac{\partial u(\mathbf{x},t)}{\partial n} = 0, \mathbf{x}\in \Gamma_N \tag{3}$$
+  $$-\kappa\frac{\partial u(\mathbf{x},t)}{\partial n} = 0, \quad \mathbf{x}\in \Gamma_N \tag{3}$$
 
   Here $n$ is the outward normal vector. 
 
@@ -85,7 +85,7 @@ $$AU^{k+1} = U^k + F^{k+1}$$
 
 Hint: Can you eliminate $u_0^k$ and $u_{n+1}^k$ in Eq. (4) using Eq. (5) and $u_{n+1}^k=0$ ?
 
-The starter code `starter1.jl` precomputes the force vector $F^k$ and packs it into a matrix $F\in \mathbb{R}^{(m+1)\times n}$. 
+The starter code **starter1.jl** precomputes the force vector $F^k$ and packs it into a matrix $F\in \mathbb{R}^{(m+1)\times n}$. 
 
 {:start="2"}
 1. Use `spdiag`[^spdiag]  to construct `A` as a `SparseTensor` (see the starter code for details). `spdiag` is an ADCME function. See the documentation[^spdiag] for the syntax. Turn in your code.
@@ -116,7 +116,7 @@ For debugging, you can plot the temperature on the left side, i.e., $u(0,t)$. Yo
 Now we are ready to perform inverse modeling. 
 
 {:start="4"}
-1. Read the starter code `starter2.jl `carefully and complete the missing implementations. Turn in your code. What is your estimate `a` and `b`?
+1. Read the starter code **starter2.jl** carefully and complete the missing implementations. Turn in your code. What is your estimate `a` and `b`?
 
 ## Problem 2: Function Inverse Problem
 
