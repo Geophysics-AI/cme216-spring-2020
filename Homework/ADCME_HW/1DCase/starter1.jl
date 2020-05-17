@@ -14,6 +14,8 @@ for k = 1:m + 1
     F[k,:] = dt * f.(xi, t)
 end
 
+# Below we use the Unicode character for the Greek kappa letter
+# κ: kappa
 κ = constant(2.0 .+ 1.5 * xi)
 
 # TODO: Construct `A` using `spdiag`

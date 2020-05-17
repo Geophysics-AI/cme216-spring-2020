@@ -8,7 +8,8 @@ Late day policy: 1 late day with a 20% grade penalty.
 
 For this homework, you need to install Julia and ADCME. See this [installation guide](./Setup.md) for detail setup. 
 
-[ADCME API reference](https://kailaix.github.io/ADCME.jl/dev/api/)
+- [ADCME basics](https://kailaix.github.io/ADCME.jl/dev/tu_basic/)
+- [ADCME API reference](https://kailaix.github.io/ADCME.jl/dev/api/)
 
 # Inverse Modeling with ADCME
 

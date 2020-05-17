@@ -18,6 +18,9 @@ end
 xi_input = Array(reshape(xi, :, 1))
 # TODO: Construct a neural network that maps xi_input to output
 κ = squeeze(____)
+# See 
+# https://kailaix.github.io/ADCME.jl/dev/tu_basic/
+# for squeeze
 
 A = spdiag(n, -1 => ____, 0 => ____, 1 => ____)
 
