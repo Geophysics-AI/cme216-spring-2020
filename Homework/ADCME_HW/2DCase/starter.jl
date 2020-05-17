@@ -39,7 +39,6 @@ for i = 1:NT + 1
     F[i,:] = ____
 end
 
-
 ########################### Simulation Loop ########################### 
 function condition(i, u)
     i <= NT + 1
