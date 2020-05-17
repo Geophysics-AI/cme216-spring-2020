@@ -48,7 +48,7 @@ We first consider the 1D case. In this problem, the material is a rod $\Omega=[0
 
 $$\kappa(x) = a + bx$$
 
-Our task is to estimate the coefficient $a$ and $b$ in $\kappa(x)$. To this end, we place a sensor at $x=0$, and the sensor records the temperature as a time series $u_0(t)$, $t\in (0,1)$. 
+Our task is to estimate the coefficient $a$ and $b$ in $\kappa(x)$. To this end, we place a sensor at $x=0,$ and the sensor records the temperature as a time series $u_0(t)$, $t\in (0,1)$. 
 
 Recall that in lecture slide [35](https://ericdarve.github.io/cme216-spring-2020/Slides/AD/AD.pdf#page=39)/47 of AD.pdf, we formulate the inverse modeling problem as a PDE-constrained optimization problem
 
@@ -146,7 +146,7 @@ Hint: Your curve should look like the following
 {:start="8"} 
 1. Add 1% and 10% Gaussian noise to the dataset and redo (7). Plot the estimated $\kappa_\theta$ curve. Comment on your observations.
 
-Hint: You can add noises by 
+Hint: You can add noise using
 
 ```julia
 uc = @. uc * (1 + 0.01*randn(length(uc)))
@@ -157,15 +157,16 @@ Here `@.` is for elementwise operations.
 
 ## Problem 3: Parameter Inverse Problem in 2D
 
-In this problem, we will digger deeper into how ADCME works with numerical solvers. We will use an important technique, custom operators, for incorporating C++ codes. This will be useful when you want to accelerate a performance critical part, or you want to reuse existing codes. To make the problem simple, the `C++` kernel has been prepared for you.
+In this problem, we will explore more deeply how ADCME works with numerical solvers. We will use an important technique, custom operators, for incorporating C++ codes. This will be useful when you want to accelerate a performance-critical part, or you want to reuse existing codes. To make the problem simple, the `C++` kernel has been prepared for you.
 
-We consider the 2D case and $T=1 $. We assume that $\Omega=[0,1]^2$. We impose zero boundary conditions on the entire boundary $\Gamma_D=\partial\Omega$. Additionally, we assume the initial condition is zero everywhere. Two sensors are located at (0.2,0.2) and $(0.8,0.8)$ and these sensors record  time series of the temperature $u_1(t)$ and $u_2(t)$. The thermal diffusivity coefficient is a linear function of the space coordinates
+We consider the 2D case and $T=1 $. We assume that $\Omega=[0,1]^2$. We impose zero boundary conditions on the entire boundary $\Gamma_D=\partial\Omega$. Additionally, we assume that the initial condition is zero everywhere. Two sensors are located at $(0.2,0.2)$ and $(0.8,0.8)$ and these sensors record time series of the temperature $u_1(t)$ and $u_2(t)$. The thermal diffusivity coefficient is a linear function of the space coordinates
 
 $$\kappa(x, y) = a + bx + cy$$
 
 where $a, b$ and $c$ are three coefficients we want to find out from the data $u_1(t)$ and $u_2(t)$. 
 
-**(a)** Write down the mathematical optimization problem for the inverse modeling.
+{:start="8"}
+1. Write down the mathematical optimization problem for the inverse modeling.
 
 We use the finite difference method to discretize the PDE. Consider $\Omega=[0,1]\times [0,1]$, we use a uniform grid and divide the domain into $m\times n$ squares, with length $\Delta  x$. We also divide $[0,T]$ into $N_T$ intervals of equal length. The implicit scheme for the equation is 
 
@@ -176,21 +177,25 @@ where $i=2,3,\ldots, m, j=2,3,\ldots, n, k=1,2,\ldots, N_T$.
 
 Here $u_{ij}^k$ is an approximation to $u((i-1)h, (j-1)h, (k-1)\Delta t)$, and $f_{ij}^k = f((i-1)h, (j-1)h, (k-1)\Delta t)$.
 
-We flatten $\\{u_{ij}^k\\}$ to a vector $U^k$, using $i$ as the leading dimension, i.e., the order is $u_{11}^k, u_{12}^k,$&hellip; We also flatten $f_{ij}^{k+1}$ and $\kappa_{ij}$ as well. 
+We flatten $\\{u_{ij}^k\\}$ to a 1D vector $U^k$, using $i$ as the leading dimension, i.e., the ordering of the vector is $u_{11}^k, u_{12}^k, $&hellip; We also flatten $f_{ij}^{k+1}$ and $\kappa_{ij}$ as well. 
 
 The following question reminds you of extending an AD framework using custom operators. In the starter code, we provide a function, `heat_equation`, a differentiable solver, which is already implemented for you using custom operators. Read the instruction on how to compile the custom operator, and answer the following two questions. 
 
-**(b)** Similar to Problem 1, implement forward computation using `while_loop`. Plot the curve of the temperature at $(0.5,0.5)$. For debugging, you should obtain something as follows
+{:start="9"}
+1. Similar to Problem 1, implement the forward computation using `while_loop`. Plot the curve of the temperature at $(0.5,0.5)$. 
+
+Hint: you should obtain something similar to
 
 ![ex2_reference](./assets/ex2_reference.png)
 
-The parameters used in this problem: $m=50$, $n=50$, $T=1$, $N_T=50$, $f(\mathbf{x},t) = e^{-t}\exp(-50((x-0.5)^2+(y-0.5)^2))$, $a = 1.5$, $b=1.0$, $c=2.0$. 
+The parameters used in this problem are: $m=50$, $n=50$, $T=1$, $N_T=50$, $f(\mathbf{x},t) = e^{-t}\exp(-50((x-0.5)^2+(y-0.5)^2))$, $a = 1.5$, $b=1.0$, $c=2.0$. 
 
-**(c)** The data file `data.txt` is a $(N_T+1)\times 2$ matrix, where the first and the second columns are $u_1(t)$ and $u_2(t)$ respectively. Using these data to do inverse modeling and report the values $a, b$ and $c$. We do not provide a starter code intentionally, but the forward computation codes in (b) and Problem 1 will be helpful. 
+The data file `data.txt` is a $(N_T+1)\times 2$ matrix, where the first and the second columns are $u_1(t)$ and $u_2(t)$ respectively. 
+
+{:start="10"}
+1. Using these data to do inverse modeling and report the values $a, b$ and $c$. We do not provide a starter code intentionally, but the forward computation codes in (b) and Problem 1 will be helpful. 
 
 Hint: 
 
-1. For checking your program, you can save your own `data.txt` from (b), try to estimate $a$, $b$, and $c$, and check if you can recover the true values. 
-1. If the optimization stop too early, you can multiply your loss function by a large number (e.g., $10^{10}$$) and run your `BFGS!` optimizer again. 
-
-
+- For checking your program, you can save your own `data.txt` from (b), try to estimate $a$, $b$, and $c$, and check if you can recover the true values. 
+- If the optimization stop too early, you can multiply your loss function by a large number (e.g., $10^{10}$$) and run your `BFGS!` optimizer again.
