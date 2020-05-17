@@ -136,7 +136,7 @@ Here x is a $n \times 1$ input, y is a $n \times 1$ output, $[20,20,20,1]$ is th
 Assume that the neural network is written as $\kappa_\theta(x)$, where $\theta$ is the weights and biases.
 
 {:start="5"} 
-1. Write down the mathematical optimization problem for the inverse modeling. 
+1. Write down the mathematical optimization problem for the inverse modeling. What variables are we optimizing for this problem?
 1. Complete the starter code `Case1D/starter3.jl` for conducting physics constrained learning. The observation data is provided as `data_pcl.txt`. Run the program several times to ensure you do not terminate early at a bad local minimum. Turn in your code.
 1. Plot your estimated $\kappa_\theta$ curve. 
 
@@ -166,8 +166,8 @@ $$\kappa(x, y) = a + bx + cy$$
 
 where $a, b$ and $c$ are three coefficients we want to find out from the data $u_1(t)$ and $u_2(t)$. 
 
-{:start="8"}
-1. Write down the mathematical optimization problem for the inverse modeling.
+{:start="9"}
+1. Write down the mathematical optimization problem for the inverse modeling. As before, explain what variables we are optimizing for this problem.
 
 We use the finite difference method to discretize the PDE. Consider $\Omega=[0,1]\times [0,1]$, we use a uniform grid and divide the domain into $m\times n$ squares, with length $\Delta  x$. We also divide $[0,T]$ into $N_T$ intervals of equal length. The implicit scheme for the equation is 
 
@@ -180,11 +180,11 @@ Here $u_{ij}^k$ is an approximation to $u((i-1)h, (j-1)h, (k-1)\Delta t)$, and $
 
 We flatten $\\{u_{ij}^k\\}$ to a 1D vector $U^k$, using $i$ as the leading dimension, i.e., the ordering of the vector is $u_{11}^k, u_{12}^k, $&hellip; We also flatten $f_{ij}^{k+1}$ and $\kappa_{ij}$ as well. 
 
-The following question shows how to extend an AD framework using custom operators (also known as _external function support_ in the AD community). In the starter code `Case2D/starter.jl`, we provide a function, `heat_equation`, a differentiable heat equation solver, which is already implemented for you using C++. By using custom operators, you are able to replace the PDE solver node in the computational graph using your own specific implementation, which may be faster or more efficient. 
+In this problem, we extend the AD framework using custom operators (also known as _external function support_ in the AD community). In the starter code `Case2D/starter.jl`, we provide a function, `heat_equation`, a differentiable heat equation solver, which is already implemented for you using C++. By using custom operators, we replace the PDE solver node in the computational graph with our own, more efficient, implementation. 
 
-Read the instruction on how to compile the custom operator, and answer the following two questions. 
+Read the [instructions](http://127.0.0.1:4000/cme216-spring-2020/Homework/ADCME_HW/Setup.html) on how to compile the custom operator, and answer the following two questions. 
 
-{:start="9"}
+{:start="10"}
 1. Similar to Problem 1, implement the forward computation using `while_loop`. Plot the curve of the temperature at $(0.5,0.5)$. 
 
 Hint: you should obtain something similar to
@@ -195,8 +195,8 @@ The parameters used in this problem are: $m=50$, $n=50$, $T=1$, $N_T=50$, $f(\ma
 
 The data file `data.txt` is a $(N_T+1)\times 2$ matrix, where the first and the second columns are $u_1(t)$ and $u_2(t)$ respectively. 
 
-{:start="10"}
-1. Using these data to do inverse modeling and report the values $a, b$ and $c$. We do not provide a starter code intentionally, but the forward computation codes in (b) and Problem 1 will be helpful. 
+{:start="11"}
+1. Use these data to do inverse modeling and report the values $a, b$ and $c$. We do not provide a starter code intentionally, but the forward computation codes in (b) and Problem 1 will be helpful. 
 
 Hint: 
 
