@@ -201,4 +201,4 @@ The data file `data.txt` is a $(N_T+1)\times 2$ matrix, where the first and the 
 Hint: 
 
 - For checking your program, you can save your own `data.txt` from (b), try to estimate $a$, $b$, and $c$, and check if you can recover the true values. 
-- If the optimization stop too early, you can multiply your loss function by a large number (e.g., $10^{10}$) and run your `BFGS!` optimizer again.
+- If the optimization stops too early, you can multiply your loss function by a large number (e.g., $10^{10}$) and run your `BFGS!` optimizer again. An alternative approach is to use a smaller tolerance. See the `BFGS!` function documentation for details. 
