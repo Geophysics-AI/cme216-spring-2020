@@ -49,6 +49,8 @@ i = constant(2, dtype = Int32)
 _, u = while_loop(condition, body, [i, u_arr])
 u = set_shape(stack(u), (m + 1, n))
 
+# readdlm reads a matrix from file using "Delimited Files"
+# https://docs.julialang.org/en/v1/stdlib/DelimitedFiles/
 uc = readdlm("data.txt")[:]
 
 # TODO: Formulate the loss function
