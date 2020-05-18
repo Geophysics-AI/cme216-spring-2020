@@ -150,7 +150,7 @@ julia> include("example.jl")
  
 You will see the same output as above `run(sess, err) = 2.9971950130484027e-6` along with this figure:
 
-![](2020-05-15-20-15-06.png){:width="40%"}
+![](assets/example_output.png){:width="40%"}
 
 You can rotate the figure in 3D using your mouse.
 
