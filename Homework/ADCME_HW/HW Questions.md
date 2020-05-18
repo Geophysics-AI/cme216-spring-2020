@@ -121,7 +121,7 @@ Now we are ready to perform inverse modeling.
 
 ## Problem 2: Function Inverse Problem
 
-Let us consider the function inverse problem, where we do not know the form of $\kappa(x)$. To this end, we substitute $\kappa(x)$ using a neural network. We will use physics constrained learning (PCL) to train $\kappa(x)$ from the temperature data $u_0(t)$. 
+Let us consider the function inverse problem, where we do not know the form of $\kappa(x)$. To this end, we substitute $\kappa(x)$ using a neural network. We will use physics constrained learning (PCL) to train $\kappa(x)$ from the temperature data $u_0(x, t)$, where $x$ is the location of a sensor. 
 
 Since we do not know the form of $\kappa(x)$, we need more data to solve the inverse problem. Therefore, we assume that we place sensors at the first 25 locations in the discretized grid. The observation data `data_pcl.txt` is a $(m+1)\times 25$ matrix; each column corresponds to the observation at one sensor. 
 
